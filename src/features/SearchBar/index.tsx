@@ -1,4 +1,5 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useState } from 'react';
+import { AiFillCloseCircle } from 'react-icons/ai';
 import { useFetchPokemonQuery } from '../../services/pokeApi';
 import styles from './styles.module.css';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
@@ -7,17 +8,22 @@ import { setSearchIdentifier } from './search-slice';
 const SearchBar = () => {
   const dispatch = useAppDispatch();
   const search = useAppSelector((state) => state.search);
-  // const [pokemonIdentifier, setPokemonIdentifier] = useState('');
+  const [identifier, setIdentifier] = useState(search?.identifier);
   const { isFetching } = useFetchPokemonQuery(search?.identifier);
 
   const onSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 
-    const target = e.target as typeof e.target & {
-      identifier: { value: string };
-    };
+    setIdentifier(identifier);
+    dispatch(setSearchIdentifier(identifier));
+  }
 
-    dispatch(setSearchIdentifier(target.identifier.value))
+  const clearSearch = () => {
+    setIdentifier('');
+
+    if (search?.identifier) {
+      dispatch(setSearchIdentifier(''));
+    }
   }
 
   return (
@@ -26,13 +32,31 @@ const SearchBar = () => {
         className={styles.form}
         onSubmit={onSubmit}
       >
-        <input
-          autoFocus
-          className={styles.input}
-          type="text"
-          name='identifier'
-          placeholder='Search by Pokemon name or id'
-        />
+        <div className={styles.inputContainer}>
+          <input
+            autoFocus
+            className={styles.input}
+            type="text"
+            name='identifier'
+            placeholder='Search by Pokemon name or id'
+            value={identifier}
+            onChange={(e) => {
+              const { value } = e.target;
+
+              setIdentifier(value);
+            }}
+          />
+          {(identifier || search?.identifier) && (
+            <button
+              className={styles.clearSearchBtn}
+              onClick={clearSearch}
+              type='button'
+            >
+              <AiFillCloseCircle size={25} />
+            </button>
+          )}
+        </div>
+
         <button
           className={styles.btnLg}
           type='submit'
@@ -41,6 +65,7 @@ const SearchBar = () => {
           Search
         </button>
       </form>
+
     </div>
   )
 }

@@ -1,0 +1,28 @@
+.searchResults {
+  margin: 1rem 0;
+  max-height: 0;
+  transition: all .2s;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 576px) {
+  .searchResults {
+    flex-direction:row;
+  }
+}
+
+.hasResults {
+  max-height: 500px;
+}
+
+.pokeSquareContainer {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .pokeSquareContainer {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}

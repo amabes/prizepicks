@@ -2,6 +2,9 @@ import { useMemo } from "react";
 import { useAppSelector } from "../../app/hooks";
 import { useFetchPokemonQuery } from "../../services/pokeApi";
 import styles from './styles.module.css';
+import PokeSquare from "../PokeSquare";
+import formatWeight from "../../utilities/formatWeight";
+import PokeDetails from "../PokeDetails";
 
 const SearchResults = () => {
   const search = useAppSelector((state) => state.search);
@@ -21,25 +24,32 @@ const SearchResults = () => {
       </div>
     );
   }
-
-  <p>
-    {search?.identifier}
-  </p>
-
   return (
     <>
       <div
         className={`${styles.searchResults} ${hasResults}`}
       >
         {data?.id && (
-          <div>
-            <img
-              src={data?.sprites?.other['official-artwork'].front_default}
-              height="40"
-              alt={data.name}
-            />
-            {data.name}
-          </div>
+          <>
+            <div className={styles.pokeSquareContainer}>
+              <PokeSquare
+                imageUrl={data?.sprites?.other['official-artwork'].front_default}
+              />
+            </div>
+
+            <div
+              className={styles.pokeSquareContainer}
+            >
+              <PokeDetails
+                name={data?.name}
+                height={data?.height}
+                weight={data?.weight}
+                abilities={data?.abilities}
+                types={data?.types}
+              />
+            </div>
+
+          </>
         )}
       </div>
     </>

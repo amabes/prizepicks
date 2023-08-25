@@ -1,0 +1,39 @@
+.pokeDetails {
+  text-align: left;
+  padding: 1rem
+}
+
+.info {
+  border-radius: 1rem;
+  background-color: rgb(244 246 248);
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #b9b9b9;
+}
+
+.infoItem {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.abilities {
+  margin: 0 0 1rem;
+}
+
+.pokemonTypes {
+  display: flex;
+  margin: .5rem 0 1rem;
+}
+
+.pokemonType {
+  border-radius: 0.5rem;
+  max-width: 110px;
+  margin: 0 1.5625% 0 0;
+  width: 38.4375%;
+  text-transform: none;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.15rem 0;
+}

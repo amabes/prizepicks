@@ -1,0 +1,14 @@
+.topNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3761a8;
+  color: #feca1b;
+  padding: 1rem 0;
+}
+
+.siteName {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: .5rem;
+}

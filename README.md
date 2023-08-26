@@ -9,6 +9,7 @@
 3. Display timestamp on previous searches
 4. Show name pokemon name suggestions as the user types in the search field
 5. When bad search is entered (mispelled pokemon), show UI letting user know
+6. Make the Pokemon in the Grid clickable
 
 ---
 ## Getting Started / Local Development

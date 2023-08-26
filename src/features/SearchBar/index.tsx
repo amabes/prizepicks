@@ -19,10 +19,13 @@ const SearchBar = () => {
 
     setIdentifier(sanitizedIdentifier);
     dispatch(setSearchIdentifier(sanitizedIdentifier))
-    dispatch(addSearchHistory({
-      identifier: sanitizedIdentifier,
-      timestamp: new Date().toISOString()
-    }));
+
+    if (sanitizedIdentifier !== '') {
+      dispatch(addSearchHistory({
+        identifier: sanitizedIdentifier,
+        timestamp: new Date().toISOString()
+      }));
+    }
   }
 
   const clearSearch = () => {

@@ -47,8 +47,8 @@ export interface Pokemon {
     other: {
       'official-artwork': {
         front_default: string;
-      }
-    }
+      };
+    };
   }
 }
 
@@ -61,12 +61,12 @@ export const pokemonApi = createApi({
     return {
       fetchPokemons: builder.query<Pokemons, number>({
         query(limit = 10) {
-          return `/pokemon/?limit=${limit}`
+          return `/pokemon/?limit=${limit}`;
         }
       }),
       fetchPokemon: builder.query<Pokemon, number | string>({
         query(identifier = '') {
-          return `/pokemon/${identifier}` // name or id
+          return `/pokemon/${identifier}`; // name or id
         }
       })
     }

@@ -1,9 +1,9 @@
 import { SyntheticEvent, useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { useFetchPokemonQuery } from '../../services/pokeApi';
-import styles from './styles.module.css';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { setSearchIdentifier } from './search-slice';
+import styles from './styles.module.css';
 
 const SearchBar = () => {
   const dispatch = useAppDispatch();
@@ -14,8 +14,10 @@ const SearchBar = () => {
   const onSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 
-    setIdentifier(identifier);
-    dispatch(setSearchIdentifier(identifier));
+    const sanitizedIdentifier = identifier.toLowerCase();
+
+    setIdentifier(sanitizedIdentifier);
+    dispatch(setSearchIdentifier(sanitizedIdentifier));
   }
 
   const clearSearch = () => {

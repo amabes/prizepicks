@@ -11,7 +11,7 @@ export const store = configureStore({
     // Expand on middleware under the hood to support better caching
     // Track cache lifetimes - if no other part of the app needs this data,
     // we can remove it after it expires
-    return getDefaultMiddleware().concat(pokemonApi.middleware)
+    return getDefaultMiddleware().concat(pokemonApi.middleware);
   }
 });
 

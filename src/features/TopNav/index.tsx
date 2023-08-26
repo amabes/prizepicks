@@ -9,7 +9,7 @@ const TopNav = () => {
         Pokédex
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default TopNav;

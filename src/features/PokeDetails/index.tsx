@@ -31,8 +31,11 @@ const PokeDetails = (props: Props) => {
           <div className={styles.infoItem}>
             <div className={styles.abilities}>
               <div className='text-weight-bold'>Abilities</div>
-              {props.abilities.map((item: PokemonAbility) => (
-                <div className='text-capitalize'>
+              {props.abilities.map((item: PokemonAbility, i) => (
+                <div
+                  key={`pokemonAbility-${i}`}
+                  className='text-capitalize'
+                >
                   {formatString(item?.ability.name)}
                 </div>
               ))}
@@ -51,8 +54,9 @@ const PokeDetails = (props: Props) => {
       </h3>
       {props.types.length !== 0 && (
         <div className={styles.pokemonTypes}>
-          {props.types.map((item: PokemonType) => (
+          {props.types.map((item: PokemonType, i) => (
             <div
+              key={`pokeType-${i}`}
               className={`${styles.pokemonType} background-color-${item?.type?.name}`}
             >
               {item?.type?.name}

@@ -11,23 +11,24 @@ const PokeGrid = () => {
   } = useFetchPokemonsQuery(8);
 
   return (
-    <>
-      <div
-        className={styles.pokeGrid}
-        style={{
-          backgroundImage: `${bkg}`
-        }}
-      >
-        {!isFetching && data?.results && data.results.map(({ name, url }, i) => (
-          <div className={styles.col} key={`PokeGridItem-${i}`}>
-            <PokeSquare
-              name={name}
-              url={url}
-            />
-          </div>
-        ))}
-      </div>
-    </>
+    <div
+      className={styles.pokeGrid}
+      style={{
+        backgroundImage: bkg
+      }}
+    >
+      {!isFetching && data?.results && data.results.map(({ name, url }, i) => (
+        <div
+          key={`pokeGridItem-${i}`}
+          className={styles.col}
+        >
+          <PokeSquare
+            name={name}
+            url={url}
+          />
+        </div>
+      ))}
+    </div>
   );
 }
 

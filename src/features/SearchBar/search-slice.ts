@@ -4,12 +4,12 @@ export interface Search {
   name: string; // "bulbasaur"
   id: number;
   imageUrl?: string;
-  currentIdentifier?: string
+  currentIdentifier?: string;
 }
 
 export interface SearchState {
-  searches: Search[],
-  identifier: string
+  searches: Search[];
+  identifier: string;
 }
 
 const initialState = {
@@ -24,7 +24,7 @@ export const searchSlice = createSlice({
     setSearchIdentifier: (state, action: PayloadAction<string>) => {
       state.identifier = action.payload;
     }
-  },
+  }
 });
 
 export const { setSearchIdentifier } = searchSlice.actions;

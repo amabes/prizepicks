@@ -5,6 +5,6 @@ const formatString = (str = '') => {
   }
 
   return result;
-}
+};
 
 export default formatString;

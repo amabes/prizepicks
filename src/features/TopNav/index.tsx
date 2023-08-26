@@ -5,7 +5,10 @@ const TopNav = () => {
   return (
     <div className={styles.topNav}>
       <MdOutlineCatchingPokemon size={30} />
-      <div className={styles.siteName}>
+      <div
+        className={styles.siteName}
+        data-testid="siteName"
+      >
         Pokédex
       </div>
     </div>

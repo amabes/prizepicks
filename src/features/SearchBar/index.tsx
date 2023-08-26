@@ -1,3 +1,4 @@
+'use client'
 import { SyntheticEvent, useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { useFetchPokemonQuery } from '../../services/pokeApi';

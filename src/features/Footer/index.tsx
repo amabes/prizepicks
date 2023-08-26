@@ -2,7 +2,10 @@ import styles from './styles.module.css';
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer
+      data-testid="footer"
+      className={styles.footer}
+    >
       <div>
         by <a href="https://linkedin.com/in/alanmabry">Alan Mabry</a>
       </div>

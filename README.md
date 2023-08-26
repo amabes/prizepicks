@@ -1,5 +1,7 @@
 # Alan Mabry x Prize Picks
 
+![Pokédex](/pokedex.png)
+
 ## Overview
 This project should take approximately 2+ hours to complete and help PrizePicks assess your front end knowledge and development style.
 

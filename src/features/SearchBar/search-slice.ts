@@ -1,21 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface Search {
-  name: string; // "bulbasaur"
-  id: number;
-  imageUrl?: string;
-  currentIdentifier?: string;
+  identifier: string;
+  timestamp?: string;
 }
 
 export interface SearchState {
-  searches: Search[];
+  history: Search[];
   identifier: string;
 }
 
-const initialState = {
-  searches: [],
+// https://stackoverflow.com/questions/52423842/what-is-not-assignable-to-parameter-of-type-never-error-in-typescript
+const initialState: { history: Search[], identifier: string } = {
+  history: [],
   identifier: ''
-}
+};
 
 export const searchSlice = createSlice({
   name: 'search',
@@ -23,8 +22,11 @@ export const searchSlice = createSlice({
   reducers: {
     setSearchIdentifier: (state, action: PayloadAction<string>) => {
       state.identifier = action.payload;
+    },
+    addSearchHistory: (state, action: PayloadAction<Search>) => {
+      state.history = [action.payload, ...state.history];
     }
   }
 });
 
-export const { setSearchIdentifier } = searchSlice.actions;
+export const { setSearchIdentifier, addSearchHistory } = searchSlice.actions;

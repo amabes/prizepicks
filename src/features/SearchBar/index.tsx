@@ -3,7 +3,7 @@ import { SyntheticEvent, useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { useFetchPokemonQuery } from '../../services/pokeApi';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { setSearchIdentifier } from './search-slice';
+import { addSearchHistory, setSearchIdentifier } from './search-slice';
 import styles from './styles.module.css';
 
 const SearchBar = () => {
@@ -18,7 +18,11 @@ const SearchBar = () => {
     const sanitizedIdentifier = identifier.toLowerCase();
 
     setIdentifier(sanitizedIdentifier);
-    dispatch(setSearchIdentifier(sanitizedIdentifier));
+    dispatch(setSearchIdentifier(sanitizedIdentifier))
+    dispatch(addSearchHistory({
+      identifier: sanitizedIdentifier,
+      timestamp: new Date().toISOString()
+    }));
   }
 
   const clearSearch = () => {

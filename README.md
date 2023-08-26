@@ -7,6 +7,8 @@
 1. When replaying a previous search, when there is an active search, I need to remove the original value
 2. Test components that leverage useAppSelector and useAppDispatch by using SpyOn
 3. Display timestamp on previous searches
+4. Show name pokemon name suggestions as the user types in the search field
+5. When bad search is entered (mispelled pokemon), show UI letting user know
 
 ---
 ## Getting Started / Local Development

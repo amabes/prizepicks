@@ -1,0 +1,62 @@
+.searchHistory {
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.row {
+  display: flex;
+  border: 1px solid grey;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: .5rem;
+  padding: .5rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.btnSm {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid #0984e3;
+  background-color: #0984e3;
+  padding: 0.25rem .5rem;
+  font-size: .5rem;
+  line-height: .5rem;
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  color: #fff;
+  border-radius: 0.3rem;
+}
+
+.btnSm:hover {
+  background-color: #3761a8;
+}
+
+.btnSm:disabled {
+  background-color: #b9b7b7;
+  color: #495057;
+  border-color: #495057;
+}
+
+.btnSm:not(:disabled) {
+  cursor: pointer;
+}
+
+.clearSearchBtn {
+  background-color: transparent;
+  border: 0;
+  color: #a6a6a6;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}

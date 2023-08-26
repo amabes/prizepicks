@@ -11,6 +11,7 @@
 .col {
   flex: 0 0 50%;
   max-width: 50%;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
